@@ -71,6 +71,10 @@ Page({
     } else {
       this.data.wrong++
     }
+    this.setData({
+      right: this.data.right,
+      wrong: this.data.wrong
+    })
   },
 
   training: function(k) {
