@@ -1,0 +1,29 @@
+<view class="page">
+
+  <view class="page__bd page__bd_spacing container">
+    <view class="page__title">{{motto}}</view>
+    <view class="page__desc">正确: {{right}}, 错误: {{wrong}}</view>
+  </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-flex">
+      <view class="weui-flex__item" wx:for="{{['1', '1#', '2', '2#']}}">
+        <view class="placeholder" bindtap="tapScore">{{item}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item" wx:for="{{['3', '4', '4#', '5']}}">
+        <view class="placeholder" bindtap="tapScore">{{item}}</view>
+      </view>
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item" wx:for="{{['5', '6', '6#', '7']}}">
+        <view class="placeholder" bindtap="tapScore">{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="page__bd page__bd_spacing">
+    <slider min="1" max="5" show-value value="2" bindchange="setDisplayInterval" />
+  </view>
+
+</view>
