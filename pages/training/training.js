@@ -63,6 +63,9 @@ Page({
   },
 
   tapScore: function(e) {
+    if (this.data.tapped) {
+      return
+    }
     this.data.tapped = true
     let k = e._relatedInfo.anchorTargetText
     let frets = fretNotes[k]
@@ -88,6 +91,9 @@ Page({
     this.data.timer = setInterval(function() {
       if (i > 0 && !that.data.tapped) {
         that.data.wrong++
+        that.setData({
+          wrong: that.data.wrong
+        })
       } 
       that.data.tapped = false
       
