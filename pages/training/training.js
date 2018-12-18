@@ -34,7 +34,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: 'xx',
+    name: '',
     motto: '',
     stringName: '',
     interval: 2000,
@@ -53,13 +53,17 @@ Page({
     }
   },
 
+  resetData: function() {
+    this.data.tapped = false
+    this.data.right = 0
+    this.data.wrong = 0
+    clearInterval(this.data.timer)
+    this.data.timer = ''
+  },
+
   setDisplayInterval: function(e) {
     this.data.interval = e.detail.value * 1000
-    clearInterval(this.data.timer)
-    this.data.wrong = 0
-    this.data.right = 0
-    this.data.tapped = false
-    this.training(this.data.stringName)
+    this.refresh()
   },
 
   tapScore: function(e) {
@@ -80,11 +84,18 @@ Page({
     })
   },
 
+  refresh: function(e) {
+    this.resetData()
+    this.setData({
+      right: this.data.right,
+      wrong: this.data.wrong
+    })
+    this.training(this.data.stringName)
+  },
+
   training: function(k) {
     var frets = strings[k]
     this.shuffle(frets)
-    console.log(frets)
-
     let that = this
     let i = 0
 
@@ -113,76 +124,10 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      name: options.s //+ '弦'
+      name: options.s + '弦'
     })
     let k = noteStringMappings[options.s]
     this.data.stringName = k
     this.training(k)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  },
-
-  openConfirm: function() {
-    wx.showModal({
-      title: '弹窗标题',
-      content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
-      confirmText: "主操作",
-      cancelText: "辅助操作",
-      success: function(res) {
-        console.log(res);
-        if (res.confirm) {
-          console.log('用户点击主操作')
-        } else {
-          console.log('用户点击辅助操作')
-        }
-      }
-    });
-  },
+  }
 })

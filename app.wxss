@@ -8,13 +8,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
+  padding: 100rpx 0;
   box-sizing: border-box;
 } 
 
 page{
     background-color: #F8F8F8;
-    font-size: 16px;
+    font-size: 20px;
     font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
 }
 .page__hd {
@@ -35,7 +35,7 @@ page{
 
 .page__title {
     text-align: left;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: 400;
 }
 
@@ -43,5 +43,5 @@ page{
     margin-top: 5px;
     color: #888888;
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
 }
