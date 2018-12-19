@@ -13,16 +13,10 @@ function shuffleArray(array) {
 
 Page({
   data: {
-    motto: 'hello world',
+    motto: '开始练习',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
 
   training: function(e) {

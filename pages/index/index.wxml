@@ -1,21 +1,22 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="page">
+  <view class="container">
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">开始练习</text>
+      </block>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  <view>
-    <button data-s="e" type="primary" size="mini" plain="true" bindtap="training">6</button>
-    <button data-s="a" type="primary" size="mini" plain="true" bindtap="training">5</button>
-    <button data-s="d" type="primary" size="mini" plain="true" bindtap="training">4</button>
-    <button data-s="g" type="primary" size="mini" plain="true" bindtap="training">3</button>
-    <button data-s="b" type="primary" size="mini" plain="true" bindtap="training">2</button>
-    <button data-s="e" type="primary" size="mini" plain="true" bindtap="training">1</button>
+
+  <view class="container">
+      <view class="weui-grids">
+        <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this">
+          <view class="weui-grid">
+            <button class="weui-btn" type="default" plain="true" bindtap='training'>{{item+ ''}}</button>
+          </view>
+        </block>
+    </view>
   </view>
 </view>
