@@ -2,18 +2,9 @@
 //获取应用实例
 const app = getApp()
 
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-}
-
 Page({
   data: {
-    motto: '开始练习',
+    motto: '指板记忆练习',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -23,7 +14,7 @@ Page({
     // var k = e.currentTarget.dataset.s
     // console.log()
     wx.navigateTo({
-      url: '../training/training?s=' + e._relatedInfo.anchorTargetText
+      url: '../training/training?s=' + e.target.dataset.s
     })
   },
 

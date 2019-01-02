@@ -34,9 +34,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '',
     motto: '',
-    stringName: '',
+    stringNote: '',
     interval: 2000,
     tapped: false,
     right: 0,
@@ -90,7 +89,7 @@ Page({
       right: this.data.right,
       wrong: this.data.wrong
     })
-    this.training(this.data.stringName)
+    this.training(this.data.stringNote)
   },
 
   training: function(k) {
@@ -98,6 +97,9 @@ Page({
     this.shuffle(frets)
     let that = this
     let i = 0
+    this.setData({
+      motto: '准备'
+    })
 
     this.data.timer = setInterval(function() {
       if (i > 0 && !that.data.tapped) {
@@ -123,11 +125,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      name: options.s + '弦'
-    })
     let k = noteStringMappings[options.s]
-    this.data.stringName = k
+    this.data.stringNote = k
     this.training(k)
   }
 })

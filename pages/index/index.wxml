@@ -5,18 +5,18 @@
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <block wx:else>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">开始练习</text>
+        <text class="userinfo-nickname">{{motto}}</text>
       </block>
     </view>
   </view>
 
   <view class="container">
-      <view class="weui-grids">
-        <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this">
-          <view class="weui-grid">
-            <button class="weui-btn" type="default" plain="true" bindtap='training'>{{item+ ''}}</button>
-          </view>
-        </block>
+    <view class="weui-grids">
+      <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this">
+        <view class="weui-grid">
+          <button data-s="{{item}}" class="weui-btn" type="default" plain="true" bindtap='training'>{{item + '弦'}}</button>
+        </view>
+      </block>
     </view>
   </view>
 </view>
